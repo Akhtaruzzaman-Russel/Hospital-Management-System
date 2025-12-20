@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doctor Management</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+/* ---------- NAVBAR ---------- */
+body{
+  margin:0;
+  padding:0;
+  background:#f1f4fb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:#333;
+}
+
+ul li{ float:left; }
+
+ul li a{
+  display:block;
+  color:white;
+  text-align:center;
+  padding:14px 16px;
+  text-decoration:none;
+}
+
+ul li a:hover{ background:#111; }
+
+/* ---------- GRID SYSTEM ---------- */
+.container{
+  width:95%;
+  max-width:1000px;
+  margin:40px auto;
+}
+
+section{ width:100%; }
+
+.row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.col-6{
+  width:calc(50% - 9px);
+}
+
+/* ---------- TITLE ---------- */
+.title{
+  text-align:center;
+  color:#0b76ff;
+  font-size:32px;
+  margin-bottom:25px;
+}
+
+/* ---------- CARD ---------- */
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.12);
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:12px 10px;
+  border:1px solid #cfd5df;
+  border-radius:6px;
+  font-size:14px;
+}
+
+/* ---------- BUTTON ---------- */
+button{
+  width:100%;
+  background:#0b76ff;
+  color:white;
+  border:none;
+  padding:13px;
+  border-radius:8px;
+  margin-top:8px;
+  font-size:17px;
+  cursor:pointer;
+}
+
+button:hover{ background:#015fe0; }
+
+/* ---------- TABLE ---------- */
+.table-box{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th{
+  background:#0b76ff;
+  color:white;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+td{
+  padding:12px;
+  border-bottom:1px solid #ddd;
+  font-size:14px;
+}
+
+.empty{
+  text-align:center;
+  color:#777;
+  padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+{% block body %}
+
+
+{% endblock body %}
+
+
+
+</body>
+</html>
+
+

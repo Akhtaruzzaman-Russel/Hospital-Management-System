@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<div class="container">
+<section>
+
+<h1 class="title">Doctor Management</h1>
+
+<!-- ================= FORM ================= -->
+<div class="card">
+
+<form method="POST" action="">
+  {% csrf_token %}
+
+  <div class="row">
+    <div class="col-6">
+      <label for="name">Doctor Name</label>
+      <input type="text" id="name" name="name"
+             placeholder="Enter full name" required>
+    </div>
+
+    <div class="col-6">
+      <label for="specialty">Specialty</label>
+      <select id="specialty" name="specialty" required>
+        <option value="" disabled selected>Select specialty</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="General Medicine">General Medicine</option>
+        <option value="Dermatology">Dermatology</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone"
+             placeholder="+1234567890" required>
+    </div>
+
+    <div class="col-6">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email"
+             placeholder="doctor@example.com" required>
+    </div>
+  </div>
+
+  <button type="submit">Add Doctor</button>
+
+</form>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="table-box">
+<table>
+<tr>
+  <th>#</th>
+  <th>Name</th>
+  <th>Specialty</th>
+  <th>Phone</th>
+  <th>Email</th>
+  <th>Department</th>
+</tr>
+
+<tr>
+  <td colspan="6" class="empty">No doctors added yet.</td>
+</tr>
+
+</table>
+</div>
+
+</section>
+</div>
+
+{% endblock body %}
