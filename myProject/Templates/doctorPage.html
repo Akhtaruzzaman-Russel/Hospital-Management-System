@@ -11,7 +11,7 @@
 <!-- ================= FORM ================= -->
 <div class="card">
 
-<form method="POST" action="">
+<form action="" method="POST" >
   {% csrf_token %}
 
   <div class="row">
@@ -23,13 +23,13 @@
 
     <div class="col-6">
       <label for="specialty">Specialty</label>
-      <select id="specialty" name="specialty" required>
+      <select id="specialty" name="specialty_id" required>
 
         <option value="" disabled selected>Select specialty</option>
 
         {% for i in doctors %}
         
-        <option value="Cardiology">{{i.Specialization}}</option>
+        <option value="{{i.id}}">{{i.Specialization}}</option>
 
         {% endfor %}
 
@@ -57,12 +57,12 @@
 
     <div class="col-6">
       <label for="specialty">Department</label>
-      <select id="specialty" name="departmentnm" required>
+      <select id="specialty" name="department_id" required>
         <option value="" disabled selected>Select Department</option>
 
         {% for i in departments %}
 
-        <option value="Cardiology">{{i.DepartmentName}}</option>
+        <option value="{{i.id}}">{{i.DepartmentName}}</option>
 
         {% endfor %}
 
@@ -80,18 +80,31 @@
 <div class="table-box">
 <table>
 <tr>
-  <th>#</th>
+  <th>SL</th>
   <th>Name</th>
   <th>Specialty</th>
   <th>Phone</th>
   <th>Email</th>
   <th>Department</th>
+  <th>Action</th>
 </tr>
 
+{% for i in doctors %}
 <tr>
-  <td colspan="6" class="empty">No doctors added yet.</td>
+  {% comment %} <td colspan="6" class="empty">No doctors added yet.</td> {% endcomment %}
+  <td>{{forloop.counter}}</td>
+  <td>{{i.DoctorName}}</td>
+  <td>{{i.Specialization}}</td>
+  <td>{{i.Phone}}</td>
+  <td>{{i.Email}}</td>
+  <td>{{i.department}}</td>
+  <td>
+        <a href="" style="text-decoration: none;">Edit |</a>
+        <a href="" style="text-decoration: none;">Delete |</a>
+        <a href="" style="text-decoration: none;">View</a>
+  </td>
 </tr>
-
+{% endfor %}
 </table>
 </div>
 

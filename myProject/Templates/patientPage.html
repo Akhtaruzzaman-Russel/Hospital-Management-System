@@ -1,5 +1,143 @@
 {% extends "base.html" %}
 
+
 {% block body %}
+
+<div class="container">
+<section>
+
+<h1 class="title">Patient Registration</h1>
+
+<!-- ================= FORM ================= -->
+<div class="card">
+
+    <form action="" method="POST" >
+    {% csrf_token %}
+
+        <div class="row">
+            <div class="col-6">
+                <label for="name">Patient Name</label>
+                <input type="text" id="name" name="Patient_Name" placeholder="Enter Patient name" required>
+                    
+            </div>
+
+            <div class="col-6">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" placeholder="Enter Patient age" required>
+                    
+            </div>
+            <div class="col-6">
+                <label for="gender">Gender</label>
+                <input type="text" id="gender" name="gender" placeholder="Male / Female" required>
+                    
+            </div>
+
+            <div class="col-6">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="+1234567890" required>
+                    
+            </div>
+            <div class="col-6">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" cols="50">
+                
+                </textarea>
+                    
+            </div>
+
+            {% comment %} <div class="col-6">
+                    <label for="specialty">Specialty</label>
+                    <select id="specialty" name="specialty_id" required>
+
+                        <option value="" disabled selected>Select specialty</option>
+
+                        {% for i in doctors %}
+                        
+                        <option value="{{i.id}}">{{i.Specialization}}</option>
+
+                        {% endfor %}
+
+
+                    </select>
+            </div> {% endcomment %}
+        </div>
+
+        {% comment %} <div class="row">
+            <div class="col-6">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1234567890" required>
+                    
+            </div>
+
+            <div class="col-6">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"  placeholder="doctor@example.com" required>
+                    
+            </div>
+        </div> {% endcomment %}
+
+        <div class="row">
+
+
+            <div class="col-6">
+            <label for="doctor">Doctor</label>
+            <select id="doctor" name="doctor_id" required>
+                <option value="" disabled selected>Select Doctor</option>
+
+                {% for i in doctors %}
+
+                <option value="{{i.id}}">{{i.DoctorName}}</option>
+
+                {% endfor %}
+
+            </select>
+            </div>
+        </div>
+
+        <button type="submit">Add Patient</button>
+
+    </form>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="table-box">
+<table>
+<tr>
+  <th>SL</th>
+  <th>Patient Name</th>
+  <th>Age</th>
+  <th>Gender</th>
+  <th>Phone Number</th>
+  <th>Address</th>
+  <th>Doctor</th>
+  <th>Action</th>
+</tr>
+
+    {% for i in patient_data %}
+<tr>
+  {% comment %} <td colspan="6" class="empty">No doctors added yet.</td> {% endcomment %}
+  <td>{{forloop.counter}}</td>
+  <td>{{i.Patientname}}</td>
+  <td>{{i.Age}}</td>
+  <td>{{i.Gender}}</td>
+  <td>{{i.Phone}}</td>
+  <td>{{i.Address}}</td>
+  <td>{{i.Doctor.DoctorName}}</td>
+
+  <td>
+        <a href="" style="text-decoration: none;">Edit |</a>
+        <a href="" style="text-decoration: none;">Delete |</a>
+        <a href="" style="text-decoration: none;">View</a>
+  </td>
+
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+</section>
+</div>
 
 {% endblock body %}
